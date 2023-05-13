@@ -1,8 +1,11 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import { Logger } from "../logger/logger";
+import { User } from '../models/user';
 
-class User {
+// import mongoose from "mongoose";
+
+class UserRoute {
 
     public express: express.Application;
     public logger: Logger;
@@ -27,9 +30,10 @@ class User {
     private routes(): void {
 
         // request to get all the users
-        this.express.get("/users", (req, res, next) => {
+        this.express.get("/users", async (req, res, next) => {
             this.logger.info("url:" + req.url);
-            res.json(this.users);
+            const users = await User.find({});
+            res.json(users);
         });
 
         // request to get all the users by userName
@@ -45,12 +49,14 @@ class User {
 
         // request to post the user
         // req.body has object of type {firstName:"fnam1",lastName:"lnam1",userName:"username1"}
-        this.express.post("/user", (req, res, next) => {
+        this.express.post("/user", async (req, res, next) => {
             this.logger.info("url:::::::" + req.url);
             this.users.push(req.body.user);
+            const user = User.build(req.body.user);
+            user.save();
             res.json(this.users);
         });
     }
 }
 
-export default new User().express;
+export default new UserRoute().express;
