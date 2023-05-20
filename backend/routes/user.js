@@ -10,12 +10,12 @@ const {
 const {isAuth} = require('../middlewares/auth');
 const {
     validateUserSignUp,
-    userVlidation,
+    userValidation,
     validateUserSignIn,
 } = require('../middlewares/validation/user');
 
-router.post('/create-user', validateUserSignUp, userVlidation, createUser);
-router.post('/sign-in', validateUserSignIn, userVlidation, userSignIn);
+router.post('/create-user', validateUserSignUp, userValidation, createUser);
+router.post('/sign-in', validateUserSignIn, userValidation, userSignIn);
 router.post('/sign-out', isAuth, signOut);
 
 
