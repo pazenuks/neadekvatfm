@@ -38,7 +38,7 @@ class UserRoute {
 
         // request to get all the users by userName
         this.express.get("/users/:userName", (req, res, next) => {
-            this.logger.info("url:::::" + req.url);
+            this.logger.info("url:" + req.url);
             const user = this.users.filter(function(user) {
                 if (req.params.userName === user.userName) {
                     return user;
@@ -50,7 +50,7 @@ class UserRoute {
         // request to post the user
         // req.body has object of type {firstName:"fnam1",lastName:"lnam1",userName:"username1"}
         this.express.post("/user", async (req, res, next) => {
-            this.logger.info("url:::::::" + req.url);
+            this.logger.info("url:" + req.url);
             this.users.push(req.body.user);
             const user = User.build(req.body.user);
             user.save();
