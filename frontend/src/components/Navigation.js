@@ -1,7 +1,7 @@
 import React ,{useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '../screens/Homescreen';
+import Feed from '../screens/Feed';
 import LoginScreen from '../screens/Loginsecreen';
 import SplashScreen from '../screens/SplashScreen';
 import RegisterScreen from '../screens/Registersecreen';
@@ -20,7 +20,7 @@ const Navigation = () => {
             options={{headerShown: false}}
           />
           ) : userInfo.token ? (
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Home" component={Feed} />
           ) : (
             <>
             <Stack.Screen
