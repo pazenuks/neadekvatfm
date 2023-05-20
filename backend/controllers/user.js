@@ -1,43 +1,45 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+import jwt from 'jsonwebtoken';
+import User from '../models/user.js';
 
-
-exports.createUser = async (req, res) => {
-    const {fullname, email, password} = req.body;
+export const createUser = async (req, res) => {
+    const { fullname, email, password } = req.body;
     const isNewUser = await User.isThisEmailInUse(email);
-    if (!isNewUser)
+    if (!isNewUser) {
         return res.json({
             success: false,
             message: 'This email is already in use, try sign-in',
         });
+    }
     const user = await User({
         fullname,
         email,
         password,
     });
     await user.save();
-    res.json({success: true, user});
+    res.json({ success: true, user });
 };
 
-exports.userSignIn = async (req, res) => {
-    const {email, password} = req.body;
+export const userSignIn = async (req, res) => {
+    const { email, password } = req.body;
 
-    const user = await User.findOne({email});
+    const user = await User.findOne({ email });
 
-    if (!user)
+    if (!user) {
         return res.json({
             success: false,
             message: 'user not found, with the given email!',
         });
+    }
 
     const isMatch = await user.comparePassword(password);
-    if (!isMatch)
+    if (!isMatch) {
         return res.json({
             success: false,
             message: 'email / password does not match!',
         });
+    }
 
-    const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
         expiresIn: '1d',
     });
 
@@ -53,7 +55,7 @@ exports.userSignIn = async (req, res) => {
     }
 
     await User.findByIdAndUpdate(user._id, {
-        tokens: [...oldTokens, {token, signedAt: Date.now().toString()}],
+        tokens: [...oldTokens, { token, signedAt: Date.now().toString() }],
     });
 
     const userInfo = {
@@ -62,23 +64,23 @@ exports.userSignIn = async (req, res) => {
         avatar: user.avatar ? user.avatar : '',
     };
 
-    res.json({success: true, user: userInfo, token});
+    res.json({ success: true, user: userInfo, token });
 };
 
-exports.signOut = async (req, res) => {
+export const signOut = async (req, res) => {
     if (req.headers && req.headers.authorization) {
         const token = req.headers.authorization.split(' ')[1];
         if (!token) {
             return res
                 .status(401)
-                .json({success: false, message: 'Authorization fail!'});
+                .json({ success: false, message: 'Authorization fail!' });
         }
 
         const tokens = req.user.tokens;
 
         const newTokens = tokens.filter(t => t.token !== token);
 
-        await User.findByIdAndUpdate(req.user._id, {tokens: newTokens});
-        res.json({success: true, message: 'Sign out successfully!'});
+        await User.findByIdAndUpdate(req.user._id, { tokens: newTokens });
+        res.json({ success: true, message: 'Sign out successfully!' });
     }
 };

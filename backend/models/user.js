@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 const userSchema = new mongoose.Schema({
     fullname: {
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
         required: true,
     },
     avatar: String,
-    tokens: [{type: Object}],
+    tokens: [{ type: Object }],
 });
 
 userSchema.pre('save', function (next) {
@@ -31,7 +31,7 @@ userSchema.pre('save', function (next) {
 });
 
 userSchema.methods.comparePassword = async function (password) {
-    if (!password) throw new Error('Password is mission, can not compare!');
+    if (!password) throw new Error('Password is missing, cannot compare!');
 
     try {
         const result = await bcrypt.compare(password, this.password);
@@ -44,7 +44,7 @@ userSchema.methods.comparePassword = async function (password) {
 userSchema.statics.isThisEmailInUse = async function (email) {
     if (!email) throw new Error('Invalid Email');
     try {
-        const user = await this.findOne({email});
+        const user = await this.findOne({ email });
         if (user) return false;
 
         return true;
@@ -54,4 +54,4 @@ userSchema.statics.isThisEmailInUse = async function (email) {
     }
 };
 
-module.exports = mongoose.model('User', userSchema);
+export default mongoose.model('User', userSchema);
