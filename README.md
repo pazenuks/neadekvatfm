@@ -18,7 +18,13 @@ npm install
 
 ### Run
 
-```npm start
+
+```
+ npm start
+ 
+ -OR-
+ 
+ npm start ios
 ```
 NB Android:
 
