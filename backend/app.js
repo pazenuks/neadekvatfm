@@ -13,6 +13,6 @@ app.use(userRouter);
 //   res.json({ success: true, message: 'Welcome to backend zone!' });
 // });
 
-app.listen(8000,'localhost', () => {
-  console.log('port is listening');
+app.listen(8000, 'localhost', () => {
+    console.log('port is listening');
 });

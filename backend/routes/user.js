@@ -2,16 +2,16 @@ const express = require('express');
 
 const router = express.Router();
 const {
-  createUser,
-  userSignIn,
-  uploadProfile,
-  signOut,
+    createUser,
+    userSignIn,
+    uploadProfile,
+    signOut,
 } = require('../controllers/user');
-const { isAuth } = require('../middlewares/auth');
+const {isAuth} = require('../middlewares/auth');
 const {
-  validateUserSignUp,
-  userVlidation,
-  validateUserSignIn,
+    validateUserSignUp,
+    userVlidation,
+    validateUserSignIn,
 } = require('../middlewares/validation/user');
 
 router.post('/create-user', validateUserSignUp, userVlidation, createUser);
