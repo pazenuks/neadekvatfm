@@ -30,7 +30,7 @@ exports.validateUserSignUp = [
         }),
 ];
 
-exports.userVlidation = (req, res, next) => {
+exports.userValidation = (req, res, next) => {
     const result = validationResult(req).array();
     if (!result.length) return next();
 
