@@ -7,6 +7,7 @@ import {
     View,
     StyleSheet,
     ImageBackground,
+    Platform
 } from 'react-native';
 import client from '../config';
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -30,12 +31,14 @@ const RegisterScreen = ({navigation}) => {
                         style={styles.input}
                         value={name}
                         placeholder="Enter name"
+                        autoCapitalize="none"
                         onChangeText={text => setName(text)}
                     />
 
                     <TextInput
                         style={styles.input}
                         value={email}
+                        autoCapitalize="none"
                         placeholder="Enter email"
                         onChangeText={text => setEmail(text)}
                     />
@@ -45,6 +48,7 @@ const RegisterScreen = ({navigation}) => {
                         value={password}
                         placeholder="Enter password"
                         onChangeText={text => setPassword(text)}
+                        autoCapitalize="none"
                         secureTextEntry
                     />
 
@@ -53,6 +57,7 @@ const RegisterScreen = ({navigation}) => {
                         value={Confpassword}
                         placeholder="confirmer password"
                         onChangeText={text => setConfPassword(text)}
+                        autoCapitalize="none"
                         secureTextEntry
                     />
 
@@ -89,7 +94,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         paddingBottom: 40,
-        fontFamily: 'sans-serif-condensed'
+        fontFamily: 'sans-serif'
     },
     wrapper: {
         width: '80%',
@@ -100,7 +105,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'black',
         borderRadius: 10,
-        paddingHorizontal: 10,
+        paddingHorizontal: 10
     },
     link: {
         color: 'blue',
