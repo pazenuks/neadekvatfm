@@ -7,6 +7,7 @@ import {
     View,
     StyleSheet,
     ImageBackground,
+    Platform
 } from 'react-native';
 import client from '../config';
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         paddingBottom: 40,
-        fontFamily: 'sans-serif-condensed'
+        fontFamily: 'sans-serif'
     },
     wrapper: {
         width: '80%',

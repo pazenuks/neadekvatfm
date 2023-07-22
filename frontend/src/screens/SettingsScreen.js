@@ -23,7 +23,7 @@ const SettingsScreen = () => {
   };
 
   return (
-    <PanGestureHandler onGestureEvent={handleGestureEvent}>
+    // <PanGestureHandler onGestureEvent={handleGestureEvent}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
           <Icon name="arrow-left" size={20} color="black" />
@@ -32,7 +32,7 @@ const SettingsScreen = () => {
         <Text style={styles.title}>Settings Screen</Text>
         {/* Add your settings screen content here */}
       </View>
-    </PanGestureHandler>
+    // </PanGestureHandler>
   );
 };
 
