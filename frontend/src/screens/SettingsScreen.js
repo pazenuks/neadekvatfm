@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { useNavigation, useNavigationState, DrawerActions } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useTheme } from 'react-native-paper';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
 const SettingsScreen = () => {
   const navigation = useNavigation();
   const navigationState = useNavigationState((state) => state);
+  const theme = useTheme();
+
 
   const handleGoBack = () => {
     navigation.goBack();
@@ -24,7 +27,7 @@ const SettingsScreen = () => {
 
   return (
     <PanGestureHandler onHandlerStateChange={handleGestureEvent}>
-      <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.colors.secondaryContainer }]}>
         <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
           <Icon name="arrow-left" size={20} color="black" />
           <Text style={styles.backButtonText}>Back</Text>
