@@ -1,14 +1,11 @@
-
-
 .header {
     padding: 2%;
-    background-color: 'rgba(0, 0, 52, 0.8)';
+    background-color: rgb(128, 0, 107);
     font-size: 50px;
     text-align: center;
     width: 100%;
     color: white;
  }
- 
  
  .footer {
    padding: 2%;
@@ -28,7 +25,7 @@ h1 {
 
 .display-board {
   width: 100%;
-  background-color: rgba(18, 20, 20, 0.719);
+  background-color: rgba(0, 119, 128, 0.719);
   padding: 5%;
 }
 

@@ -88,9 +88,7 @@ MONGO_URI= mongodb+srv://Exemple:Password@cluster0.7dty31j.mongodb.net/?retryWri
 ### home
 ![](https://github.com/thamerh/System-Authentification-ReactNative-nodeJs-Express-Mongodb/blob/main/SecreenShot/home.png)
 
-# Run reminder for Ilay
+## Made By
 
-cd backend/ npm start ios
-cd frontend/ npx expo start
-regularly run watchman watch-del-all
+- [@thamerh](https://github.com/thamerh)
 
