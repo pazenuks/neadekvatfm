@@ -60,7 +60,7 @@ const Feed = () => {
           <Text>Feed</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navBarButton} onPress={handleRecordPress}>
-          <Icon name="mars" size={25} color="black" />
+          <Icon name="mars-double" size={25} color="black" />
           <Text>Record</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navBarButton} onPress={handleSettingsPress}>
