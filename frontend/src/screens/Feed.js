@@ -36,7 +36,6 @@ const Feed = () => {
   const navigation = useNavigation();
   const isFeedScreenFocused = useIsFocused();
 
-
   const handleFeedPress = () => {
     if (!isFeedScreenFocused) {
       navigation.navigate('Feed');
@@ -45,9 +44,12 @@ const Feed = () => {
 
   const handleSettingsPress = () => {
     navigation.navigate('SettingsScreen');
-
-
   };
+
+  const handleRecordPress = () => {
+    navigation.navigate('RecordScreen');
+  };
+
 
   return (
     <View style={styles.container}>
@@ -56,6 +58,10 @@ const Feed = () => {
         <TouchableOpacity style={styles.navBarButton} onPress={handleFeedPress}>
           <Icon name="bars" size={25} color="black" />
           <Text>Feed</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navBarButton} onPress={handleRecordPress}>
+          <Icon name="mars" size={25} color="black" />
+          <Text>Record</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navBarButton} onPress={handleSettingsPress}>
           <Icon name="gear" size={25} color="black" />

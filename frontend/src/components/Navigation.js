@@ -5,6 +5,7 @@ import FeedScreen from '../screens/Feed';
 import LoginScreen from '../screens/LoginScreen';
 import SplashScreen from '../screens/SplashScreen';
 import RegisterScreen from '../screens/RegisterScreen';
+import RecordScreen from '../screens/RecordScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { AuthContext } from '../context/AuthContext.js';
 
@@ -21,6 +22,7 @@ const Navigation = () => {
         ) : userInfo.token ? (
           <>
             <Stack.Screen name="Home" component={FeedScreen} />
+            <Stack.Screen name="RecordScreen" component={RecordScreen} />
             <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
           </>
         ) : (
