@@ -18,23 +18,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.wakeupdrunkkk.FrontEnd"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.wakeupdrunkkk.FrontEnd"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "60fe4fd8-39fc-453f-96af-e88c3dbce2a6"
-      }
     }
   }
 }

@@ -94,7 +94,7 @@ const LoginScreen = ({navigation}) => {
             <Spinner visible={isLoading}/>
             <ImageBackground source={image} resizeMode="cover" style={styles.image}>
                 <UserAvatar size={200} style={styles.avatar}
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN2vVVG2BOns1aicnn0wKmKn3aYtHCcBiysWlpz_c&s"/>
+                            src="https://www.meme-arsenal.com/memes/dc89681b0fe9c293ba38184bc6c2eae3.jpg"/>
                 <View style={styles.wrapper}>
                     {error ? (
                         <Text style={{color: 'red', fontSize: 18, textAlign: 'center'}}>
