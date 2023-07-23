@@ -35,7 +35,7 @@ const FeedScreen = () => {
 const Feed = () => {
   const navigation = useNavigation();
   const isFeedScreenFocused = useIsFocused();
-  const isSettingScreenFocused = useIsFocused();
+
 
   const handleFeedPress = () => {
     if (!isFeedScreenFocused) {
@@ -44,9 +44,9 @@ const Feed = () => {
   };
 
   const handleSettingsPress = () => {
-    if (isSettingScreenFocused) {
-      navigation.navigate('SettingsScreen');
-    }
+    navigation.navigate('SettingsScreen');
+
+
   };
 
   return (
@@ -55,9 +55,11 @@ const Feed = () => {
       <View style={styles.navigationBar}>
         <TouchableOpacity style={styles.navBarButton} onPress={handleFeedPress}>
           <Icon name="bars" size={25} color="black" />
+          <Text>Feed</Text>
         </TouchableOpacity>
-        <TouchableOpacity name="SettingsScreen" style={styles.navBarButton} onPress={handleSettingsPress}>
+        <TouchableOpacity style={styles.navBarButton} onPress={handleSettingsPress}>
           <Icon name="gear" size={25} color="black" />
+          <Text>Settings</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     height: 60,
-    backgroundColor: '#f1f1f1',
+    backgroundColor: 'rgba(0, 0, 0, 0)',
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -92,6 +94,7 @@ const styles = StyleSheet.create({
   },
   navBarButton: {
     flex: 1,
+    bottom: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -102,8 +105,8 @@ const styles = StyleSheet.create({
     roundness: 10,
     fontSize: 18,
     position: 'absolute',
-    top: 0,
-    right: 0,
+    top: 70,
+    right: 15,
     borderRadius: 5,
   },
   buttonContent: {
